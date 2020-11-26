@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Добавление учередителей";
+}
+
+<h2>Форма оформления покупки</h2>
+
+<form method="post" class="form-horizontal" role="form">
+    <input type="hidden" value="@ViewBag.ClientID" name="ClientID" />
+    <p>Для добавления учередителя заполните следующие поля:</p>
+    <div class="form-group">
+        <label for="INN_founder" class="col-md-2 control-label">ИНН:</label>
+        <div class="col-md-4">
+            <input type="text" name="INN_founder" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Full_name_founder" class="col-md-2 control-label">ФИО учередителя:</label>
+        <div class="col-md-4">
+            <input type="text" name="Full_name_founder" class="form-control" />
+        </div>
+    </div>
+
+ 
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Отправить" />
+        </div>
+    </div>
+</form>

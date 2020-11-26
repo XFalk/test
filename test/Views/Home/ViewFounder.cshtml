@@ -1,0 +1,35 @@
+﻿@model IEnumerable<test.Models.Founder>
+@{
+    ViewData["Title"] = "Список учередителей";
+}
+
+<h2>    Список учередителей выбранной компании   </h2>
+
+<form method="post" class="form-horizontal" role="form">
+    <table class="table-condensed">
+        <tr>
+            <td>ИНН</td>
+            <td>ФИО учередителя</td>
+            <td>Дата создания</td>
+            <td>Дата изменения</td>
+            <td></td>
+        </tr>
+        @foreach (var founder in Model)
+        {@if (ViewBag.ClientID == founder.ClientId)
+            {
+                <tr>
+                    <td>@founder.INN_founder</td>
+                    <td>@founder.Full_name_founder</td>
+                    <td>@founder.Date_added_founder</td>
+                    <td>@founder.Date_update_founder  </td>
+                    <td><a href="~/Home/AddFounder">Изменить</a></td>
+                    <td><a href="~/Home/DeleteFounder/@founder.FounderId">Удалить</a></td>
+                </tr>
+            }
+            else { }
+    }
+        <tr>
+            <td><a href="~/Home/AddFounder/@ViewBag.ClientID">Добавить учередителя</a></td>
+        </tr>
+    </table>
+</form>

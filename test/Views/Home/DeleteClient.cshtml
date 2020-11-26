@@ -1,0 +1,43 @@
+﻿@model IEnumerable<test.Models.Client>
+@{
+    ViewData["Title"] = "Удаление клиентов";
+
+}
+
+<h2>Форма удаления клиентов</h2>
+
+<form method="post" class="form-horizontal" role="form">
+    <p>Для продолжения удаления нажмите "Удалить"</p>
+   @foreach (var client in Model)
+   {
+       @if (ViewBag.ClientID == client.ClientId)
+       {
+
+    <div class="form-group">
+        <label for="INN_client" class="col-md-2 control-label">ИНН:</label>
+        <label for="INN_client" class="col-md-2 control-label">@client.INN_client</label>
+    </div>
+    <div class="form-group">
+        <label for="Name_client" class="col-md-2 control-label">Название организации:</label>
+        <label for="Name_client" class="col-md-2 control-label">@client.Name_client</label>
+        <div class="form-group">
+            <label for="Type_client" class="col-md-2 control-label">Тип клиента:</label>
+            <label for="Type_client" class="col-md-2 control-label">@client.Type_client</label>
+        </div>
+        <div class="form-group">
+            <label for="Date_added_client" class="col-md-2 control-label">Дата добавления клиента:</label>
+            <label for="Date_added_client" class="col-md-2 control-label">@client.Date_added_client</label>
+        </div>
+        <div class="form-group">
+            <label for="Date_update_client" class="col-md-2 control-label">Дата обновления клиента:</label>
+            <label for="Date_update_client" class="col-md-2 control-label">@client.Date_update_client</label>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Удалить" />
+            </div>
+        </div>
+    </div>}
+       }
+</form>

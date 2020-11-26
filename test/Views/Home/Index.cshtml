@@ -1,0 +1,40 @@
+﻿@model IEnumerable<test.Models.Client>
+@{
+    ViewData["Title"] = "Список клиентов";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Список клиентов</title>
+</head>
+<body>
+    <h3>Клиенты</h3>
+    <table class="table-condensed">
+        <tr>
+            <td>ИНН</td>
+            <td>Название</td>
+            <td>Тип клиента</td>
+            <td>Дата создания</td>
+            <td>Дата изменения</td>
+            <td></td>
+        </tr>
+        @foreach (var client in Model)
+        {
+            <tr>
+                <td>@client.INN_client</td>
+                <td>@client.Name_client</td>
+                <td>@client.Type_client</td>
+                <td>@client.Date_added_client</td>
+                <td>@client.Date_update_client  </td>
+                <td><a href="~/Home/ViewFounder/@client.ClientId">Учередители организации</a></td>
+                <td><a href="~/Home/EditClient/@client.ClientId">Изменить</a></td>
+                <td><a href="~/Home/DeleteClient/@client.ClientId">Удалить</a></td>
+            </tr>
+        }
+        <tr>
+            <td><a href="~/Home/AddClient">Добавить клиента</a></td>
+        </tr>
+    </table>
+</body>
+</html>
